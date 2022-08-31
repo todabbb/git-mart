@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     redirect_to mypage_users_url
   end
 
-  def mypage
+  def mypege
   end
   
   def edit_address
