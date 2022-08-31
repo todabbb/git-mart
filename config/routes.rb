@@ -13,14 +13,16 @@ Rails.application.routes.draw do
     get "verify", :to => "users/registrations#verify"
     get "login", :to => "users/sessions#new"
     delete "logout", :to => "users/sessions#destroy"
-end
+  end
 
-resource :users, only: [:edit, :update] do
+  resource :users, only: [:edit, :update] do
     collection do
       get "mypage", :to => "users#mypage"
       get "mypage/edit", :to => "users#edit"
       get "mypage/address/edit", :to => "users#edit_address"
       put "mypage", :to => "users#update"
+      get "mypage/edit_password", :to =>"users#edit_password"
+      put "mypage/password", :to => "users#update_password"
     end
   end
   
