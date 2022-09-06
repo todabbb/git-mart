@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "dashboard", :to => "dashboard#index"
+  
   get 'shopping_carts/index'
   devise_for :users, :controllers => {
   :registrations => 'users/registrations',
