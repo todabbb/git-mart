@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     resources :users, only: [:index, :destroy]
-    resources :major_categories
+     resources :major_categories, except: [:new]
     resources :categories, except: [:new]
     resources :products, except: [:show]
   end
