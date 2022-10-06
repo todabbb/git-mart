@@ -23,6 +23,13 @@ class ShoppingCartsController < ApplicationController
     @user_cart.save
     redirect_to cart_users_url
   end
+  
+  Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+     Payjp::Charge.create( 
+                           :customer => current_user.token,
+                           :amount => @user_cart.total.to_i,
+                           :currency => 'jpy'
+                         )
 
   private
     def product_params
